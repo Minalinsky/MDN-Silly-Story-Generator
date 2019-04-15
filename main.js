@@ -1,4 +1,5 @@
-var customName = document.getElementById('customname');
+
+var customName = document.getElementById('nome');
 var randomize = document.querySelector('.randomize');
 var story = document.querySelector('.story');
 
@@ -7,7 +8,7 @@ function randomValueFromArray(array){
   return array[random];
 }
 
-var storyText = 'It was 94 fahrenheit outside, so :insertx: went for a walk. When they got to :inserty:, they stared in horror for a few moments, then :insertz:. Bob saw the whole thing, but was not surprised — :insertx: weighs 300 pounds, and it was a hot day.';
+var completeText = 'It was 94 fahrenheit outside, so :insertx: went for a walk. When they got to :inserty:, they stared in horror for a few moments, then :insertz:. Bob saw the whole thing, but was not surprised — :insertx: weighs 300 pounds, and it was a hot day.';
 var insertX = ['Willy the Goblin','Big Daddy','Father Christmas'];
 var insertY = ['the soup kitchen','Disneyland','the White House'];
 var insertZ = ['spontaneously combusted','melted into a puddle on the sidewalk','turned into a slug and crawled away'];
@@ -15,29 +16,28 @@ var insertZ = ['spontaneously combusted','melted into a puddle on the sidewalk',
 randomize.addEventListener('click', result);
 
 function result() {
-  var newStory = storyText;
+  var generatedStory = completeText; // generatedStory é o newStory do enunciado
+  var x = randomValueFromArray(insertX); //xItem dado no enunciado
+  var y = randomValueFromArray(insertY); //yItem dado no enunciado
+  var z = randomValueFromArray(insertZ); //zItem dado no enunciado
 
-  var xItem = randomValueFromArray(insertX);
-  var yItem = randomValueFromArray(insertY);
-  var zItem = randomValueFromArray(insertZ);
-
-  newStory = newStory.replace(':insertx:',xItem);
-  newStory = newStory.replace(':insertx:',xItem);
-  newStory = newStory.replace(':inserty:',yItem);
-  newStory = newStory.replace(':insertz:',zItem);
+  generatedStory = generatedStory.replace(':insertx:',x);
+  generatedStory = generatedStory.replace(':insertx:',x);
+  generatedStory = generatedStory.replace(':inserty:',y);
+  generatedStory = generatedStory.replace(':insertz:',z);
 
   if(customName.value !== '') {
     var name = customName.value;
-    newStory = newStory.replace('Bob',name);
+    generatedStory = generatedStory.replace('Bob',name);
   }
 
   if(document.getElementById("uk").checked) {
     var weight = Math.round(300*0.0714286) + ' stone';
     var temperature =  Math.round((94-32) * 5 / 9) + ' centigrade';
-    newStory = newStory.replace('94 fahrenheit',temperature);
-    newStory = newStory.replace('300 pounds',weight);
+    generatedStory = generatedStory.replace('94 fahrenheit',temperature);
+    generatedStory = generatedStory.replace('300 pounds',weight);
   }
 
-  story.textContent = newStory;
+  story.textContent = generatedStory;
   story.style.visibility = 'visible';
 }

@@ -1,3 +1,5 @@
+<!-- Alyson Matheus M. Nascimento e Lucas Augusto -->
+<!-- MDN Silly Story Generator -->
 <!DOCTYPE html>
 <html>
   <head>
@@ -9,21 +11,19 @@
 
     <style>
     body {
-      font-family: helvetica, sans-serif;
-      width: 350px;
-    }
-    label {
-      font-weight: bold;  
+      font-family: arial, "Times New Roman";
+      width: 600px;
     }
     div {
       padding-bottom: 20px;
+	  margin-left: 30px;
     }
     input[type="text"] {
       padding: 5px;
-      width: 150px;
+      width: 230px;
     }
     p {
-      background: #FFC125;
+      background: #FFFACD;
       color: #5E2612;
       padding: 10px;
       visibility: hidden;
@@ -33,8 +33,8 @@
 
   <body>
     <div>
-      <label for="customname">Enter custom name:</label>
-      <input id="customname" type="text" placeholder="">
+      <label>Enter custom name:</label>
+      <input id="nome" type="text" placeholder="">
     </div>
     <div>
       <label for="us">US</label><input id="us" type="radio" name="ukus" value="us" checked>
@@ -43,7 +43,6 @@
     <div>
       <button class="randomize">Generate random story</button>
     </div>
-    <!-- Thanks a lot to Willy Aguirre for his help with the code for this assessment -->
     <p class="story"></p>
     <script src="main.js"></script>
   </body>
